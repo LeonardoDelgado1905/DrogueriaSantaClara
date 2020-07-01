@@ -9,7 +9,6 @@ controller.list = ((req, res) =>{
                 usuarios = rows;
                 if(err){
                     const message = "Usted no tiene permiso para acceder a esta página";
-                    // console.log("Usted no tiene permiso para acceder");
                     res.render('error.ejs', {message});
                 }
                 else{

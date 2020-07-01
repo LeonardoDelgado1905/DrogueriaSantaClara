@@ -44,15 +44,10 @@ controller.signin = ((req, res) =>{
                         if(usu.activo){
                             req.session.user = usu;
                             var usuNombre = usu.per_nombre.toLowerCase() + "_" + usu.per_apellido.toLowerCase();
-                            console.log("MI NOMBRE ES: " + usuNombre);
                             conn.changeUser({user : usuNombre, password: usu.usu_password}, function(err) {
                                 if (err){
-                                    console.log("te mamaste wey");
                                     console.log(conn);
                                     throw err;
-                                }
-                                else{
-                                    console.log("todo fine");
                                 }
                             });
                             res.redirect('/productos');
