@@ -6,6 +6,8 @@ const conecctionDatabase = require('express-myconnection');
 const app = express();
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const http = require('http');
+const server = http.createServer(app);
 
 //importing routes
 const producto_routes = require('./routes/producto.js');
@@ -86,7 +88,7 @@ app.use('/', usuarios_routes);
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.listen(app.get('port'), () => {
+server.listen(app.get('port'), () => {
     console.log('Server on port 3000');
 });
 
